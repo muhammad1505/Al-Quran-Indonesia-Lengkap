@@ -1,0 +1,26 @@
+[
+  {
+    "number": 1,
+    "name": "سُورَةُ ٱلْفَاتِحَةِ",
+    "transliteration_en": "Al-Fatihah",
+    "translation_en": "The Opening",
+    "total_verses": 7,
+    "revelation_type": "Meccan"
+  },
+  {
+    "number": 2,
+    "name": "سُورَةُ ٱلْبَقَرَةِ",
+    "transliteration_en": "Al-Baqarah",
+    "translation_en": "The Cow",
+    "total_verses": 286,
+    "revelation_type": "Medinan"
+  },
+  {
+    "number": 3,
+    "name": "سُورَةُ آلِ عِمْرَانَ",
+    "transliteration_en": "Ali 'Imran",
+    "translation_en": "Family of Imran",
+    "total_verses": 200,
+    "revelation_type": "Medinan"
+  }
+]
