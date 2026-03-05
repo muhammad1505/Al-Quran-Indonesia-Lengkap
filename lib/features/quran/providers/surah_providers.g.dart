@@ -6,11 +6,11 @@ part of 'surah_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$quranRepositoryHash() => r'b58f2a186245b49711b929702ee064a5ab01c48e';
+String _$quranRepositoryHash() => r'd883267787692ed634ef8fe095d238ecbf8232fa';
 
 /// See also [quranRepository].
 @ProviderFor(quranRepository)
-final quranRepositoryProvider = AutoDisposeProvider<QuranRepository>.internal(
+final quranRepositoryProvider = Provider<QuranRepository>.internal(
   quranRepository,
   name: r'quranRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -22,7 +22,7 @@ final quranRepositoryProvider = AutoDisposeProvider<QuranRepository>.internal(
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef QuranRepositoryRef = AutoDisposeProviderRef<QuranRepository>;
+typedef QuranRepositoryRef = ProviderRef<QuranRepository>;
 String _$surahListHash() => r'36e15fe5b62975eaab0bf0599ae57e6063e0ed99';
 
 /// See also [surahList].

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quran_app/core/theme/app_colors.dart';
+import 'package:quran_app/core/constants/app_constants.dart';
 import 'package:quran_app/domain/entities/surah.dart';
 
 class SurahListTile extends StatelessWidget {
@@ -15,74 +17,101 @@ class SurahListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      elevation: 2.0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(12.0),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Row(
-            children: [
-              // Surah Number
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  SvgPicture.asset(
-                    'assets/images/islamic_star.svg',
-                    width: 40,
-                    height: 40,
-                    colorFilter: ColorFilter.mode(
-                      Theme.of(context).colorScheme.primary.withOpacity(0.8),
-                      BlendMode.srcIn,
-                    ),
+    final theme = Theme.of(context);
+    final isMeccan = surah.revelationType.toLowerCase() == 'meccan';
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      child: Card(
+        child: InkWell(
+          onTap: () {
+            HapticFeedback.selectionClick();
+            onTap();
+          },
+          borderRadius: BorderRadius.circular(AppConstants.radiusLG),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+            child: Row(
+              children: [
+                // ── Number Badge ──
+                Container(
+                  width: 42,
+                  height: 42,
+                  decoration: BoxDecoration(
+                    gradient: AppColors.primaryGradient,
+                    borderRadius: BorderRadius.circular(12),
                   ),
-                  Text(
-                    surah.number.toString(),
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).colorScheme.onPrimary,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(width: 16.0),
-              // Surah Name and Details
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      surah.transliterationEn,
-                      style: const TextStyle(
+                  child: Center(
+                    child: Text(
+                      surah.number.toString(),
+                      style: GoogleFonts.poppins(
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontSize: 16,
+                        fontSize: 14,
                       ),
                     ),
-                    const SizedBox(height: 4.0),
-                    Text(
-                      '${surah.revelationType.toUpperCase()} - ${surah.totalVerses} VERSES',
-                      style: TextStyle(
-                        color: Colors.grey[600],
-                        fontSize: 12,
+                  ),
+                ),
+                const SizedBox(width: 14),
+
+                // ── Info ──
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        surah.transliterationEn,
+                        style: theme.textTheme.titleSmall?.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 3),
+                      Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 6, vertical: 2),
+                            decoration: BoxDecoration(
+                              color: isMeccan
+                                  ? AppColors.accent.withValues(alpha: 0.12)
+                                  : AppColors.info.withValues(alpha: 0.12),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: Text(
+                              isMeccan ? 'Makkiyah' : 'Madaniyah',
+                              style: GoogleFonts.poppins(
+                                fontSize: 10,
+                                fontWeight: FontWeight.w600,
+                                color: isMeccan
+                                    ? AppColors.accentDark
+                                    : AppColors.info,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            '${surah.totalVerses} Ayat',
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              fontSize: 11,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(width: 16.0),
-              // Arabic Name
-              Text(
-                surah.name,
-                style: GoogleFonts.amiri(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).colorScheme.primary,
+
+                // ── Arabic Name ──
+                Text(
+                  surah.name,
+                  style: GoogleFonts.amiri(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: theme.colorScheme.primary,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

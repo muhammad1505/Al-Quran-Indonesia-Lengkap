@@ -1,0 +1,47 @@
+Analyzing Al-Quran-Indonesia-Lengkap...                         
+
+   info • The import of 'package:flutter/services.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart' • lib/core/widgets/ui_utils.dart:2:8 • unnecessary_import
+   info • Unnecessary use of multiple underscores • lib/features/audio/presentation/pages/audio_manager_page.dart:73:32 • unnecessary_underscores
+warning • Unused import: 'package:quran_app/features/audio/presentation/providers/audio_download_provider.dart' • lib/features/audio/presentation/widgets/audio_control_bar.dart:6:8 • unused_import
+   info • Unnecessary use of multiple underscores • lib/features/audio/presentation/widgets/audio_control_bar.dart:173:46 • unnecessary_underscores
+warning • The value of the local variable 'isDark' isn't used • lib/features/doa/presentation/pages/doa_harian_page.dart:16:11 • unused_local_variable
+warning • Unused import: 'package:quran_app/core/theme/app_colors.dart' • lib/features/doa/presentation/pages/dzikir_page.dart:4:8 • unused_import
+warning • The value of the local variable 'isDark' isn't used • lib/features/doa/presentation/pages/dzikir_page.dart:16:11 • unused_local_variable
+warning • Unused import: 'package:quran_app/core/widgets/ui_utils.dart' • lib/features/hadith/presentation/pages/hadith_page.dart:4:8 • unused_import
+   info • 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre • lib/features/hafalan/presentation/pages/hafalan_page.dart:410:13 • deprecated_member_use
+warning • Unused import: 'package:quran_app/core/constants/app_constants.dart' • lib/features/profile/presentation/pages/profile_page.dart:5:8 • unused_import
+   info • Unnecessary use of multiple underscores • lib/features/profile/presentation/pages/profile_page.dart:117:28 • unnecessary_underscores
+   info • Unnecessary use of multiple underscores • lib/features/profile/presentation/pages/profile_page.dart:164:36 • unnecessary_underscores
+   info • Unnecessary use of multiple underscores • lib/features/profile/presentation/pages/profile_page.dart:179:36 • unnecessary_underscores
+   info • 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor or activeTrackColor instead. This feature was deprecated after v3.31.0-2.0.pre • lib/features/profile/presentation/pages/profile_page.dart:229:25 • deprecated_member_use
+   info • 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor or activeTrackColor instead. This feature was deprecated after v3.31.0-2.0.pre • lib/features/profile/presentation/pages/profile_page.dart:256:25 • deprecated_member_use
+   info • 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor or activeTrackColor instead. This feature was deprecated after v3.31.0-2.0.pre • lib/features/profile/presentation/pages/profile_page.dart:283:25 • deprecated_member_use
+   info • Unnecessary use of multiple underscores • lib/features/profile/presentation/pages/profile_page.dart:708:22 • unnecessary_underscores
+   info • The private field _filterFactor could be 'final' • lib/features/qibla/presentation/pages/qibla_page.dart:31:10 • prefer_final_fields
+warning • Unused import: 'package:quran_app/core/theme/app_colors.dart' • lib/features/quran/presentation/pages/bookmarks_page.dart:4:8 • unused_import
+warning • Unused import: 'package:quran_app/core/constants/app_constants.dart' • lib/features/quran/presentation/pages/bookmarks_page.dart:5:8 • unused_import
+warning • The value of the local variable 'isDark' isn't used • lib/features/quran/presentation/pages/bookmarks_page.dart:16:11 • unused_local_variable
+warning • Unused import: 'package:quran_app/features/tajwid/presentation/pages/tajwid_page.dart' • lib/features/quran/presentation/pages/quran_page.dart:10:8 • unused_import
+   info • 'Share' is deprecated and shouldn't be used. Use SharePlus instead • lib/features/quran/presentation/pages/surah_detail_page.dart:84:5 • deprecated_member_use
+   info • 'share' is deprecated and shouldn't be used. Use SharePlus.instance.share() instead • lib/features/quran/presentation/pages/surah_detail_page.dart:84:11 • deprecated_member_use
+warning • This default clause is covered by the previous cases • lib/features/quran/presentation/pages/surah_detail_page.dart:186:7 • unreachable_switch_default
+   info • 'onPopInvoked' is deprecated and shouldn't be used. Use onPopInvokedWithResult instead. This feature was deprecated after v3.22.0-12.0.pre • lib/features/quran/presentation/pages/surah_detail_page.dart:322:7 • deprecated_member_use
+   info • 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor instead. This feature was deprecated after v3.31.0-2.0.pre • lib/features/quran/presentation/pages/surah_detail_page.dart:362:31 • deprecated_member_use
+warning • Unused import: 'package:quran_app/core/theme/app_colors.dart' • lib/features/sholat/presentation/pages/kalender_sholat_page.dart:5:8 • unused_import
+   info • 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor or activeTrackColor instead. This feature was deprecated after v3.31.0-2.0.pre • lib/features/sholat/presentation/pages/sholat_settings_page.dart:47:19 • deprecated_member_use
+   info • 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor or activeTrackColor instead. This feature was deprecated after v3.31.0-2.0.pre • lib/features/sholat/presentation/pages/sholat_settings_page.dart:184:19 • deprecated_member_use
+   info • 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor or activeTrackColor instead. This feature was deprecated after v3.31.0-2.0.pre • lib/features/sholat/presentation/pages/sholat_settings_page.dart:252:21 • deprecated_member_use
+   info • 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor or activeTrackColor instead. This feature was deprecated after v3.31.0-2.0.pre • lib/features/sholat/presentation/pages/sholat_settings_page.dart:312:19 • deprecated_member_use
+   info • 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor or activeTrackColor instead. This feature was deprecated after v3.31.0-2.0.pre • lib/features/sholat/presentation/pages/sholat_settings_page.dart:331:19 • deprecated_member_use
+   info • 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor or activeTrackColor instead. This feature was deprecated after v3.31.0-2.0.pre • lib/features/sholat/presentation/pages/sholat_settings_page.dart:377:15 • deprecated_member_use
+warning • Unused import: 'dart:collection' • lib/features/tajwid/domain/tajweed.dart:1:8 • unused_import
+   info • The constant name 'Saad' isn't a lowerCamelCase identifier • lib/features/tajwid/domain/tajweed.dart:33:7 • constant_identifier_names
+   info • The constant name 'aleph_khanjareeya' isn't a lowerCamelCase identifier • lib/features/tajwid/domain/tajweed.dart:39:7 • constant_identifier_names
+warning • Unused import: 'package:flutter/gestures.dart' • lib/features/tajwid/presentation/pages/tajwid_page.dart:1:8 • unused_import
+warning • The value of the local variable 'isDark' isn't used • lib/features/tajwid/presentation/pages/tajwid_page.dart:66:11 • unused_local_variable
+warning • Unused import: 'package:quran_app/features/tajwid/presentation/pages/tajwid_page.dart' • lib/main.dart:8:8 • unused_import
+warning • Unused import: 'dart:math' • lib/presentation/pages/home_page.dart:3:8 • unused_import
+warning • Unused import: 'package:quran_app/features/quran/presentation/widgets/surah_list_tile.dart' • lib/presentation/pages/home_page.dart:22:8 • unused_import
+   info • Unnecessary use of multiple underscores • lib/presentation/pages/home_page.dart:198:28 • unnecessary_underscores
+warning • Unused import: 'package:quran_app/features/sholat/data/models/city.dart' • test/repositories/sholat_repository_test.dart:6:8 • unused_import
+

@@ -1,3 +1,5 @@
+import 'package:quran_app/core/utils/surah_translation_mapper.dart';
+
 class Surah {
   final int number;
   final String name;
@@ -19,8 +21,8 @@ class Surah {
     return Surah(
       number: json['number'],
       name: json['name'],
-      transliterationEn: json['transliteration_en'],
-      translationEn: json['translation_en'],
+      transliterationEn: json['transliteration_en'] ?? json['transliteration_id'] ?? '',
+      translationEn: SurahTranslationMapper.getIndonesianTranslation(json['translation_en'] ?? ''),
       totalVerses: json['total_verses'],
       revelationType: json['revelation_type'],
     );

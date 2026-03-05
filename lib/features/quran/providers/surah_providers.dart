@@ -6,8 +6,8 @@ import '../../../domain/repositories/quran_repository.dart';
 
 part 'surah_providers.g.dart';
 
-// 1. Repository Provider
-@riverpod
+// 1. Repository Provider (keepAlive so the in-memory cache persists)
+@Riverpod(keepAlive: true)
 QuranRepository quranRepository(QuranRepositoryRef ref) {
   return QuranRepositoryImpl();
 }

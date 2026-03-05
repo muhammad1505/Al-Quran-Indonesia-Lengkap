@@ -19,8 +19,7 @@ void main() {
     expect(find.text('1'), findsNothing);
 
     // 3. Tap the screen to increment the counter.
-    // We tap the container that says 'TAP ANYWHERE TO COUNT'.
-    await tester.tap(find.text('TAP ANYWHERE TO COUNT'));
+    await tester.tap(find.text('KETUK LAYAR UNTUK MENGHITUNG'));
     await tester.pump(); // Rebuild the widget with the new state.
 
     // 4. Verify that our counter has incremented.
@@ -28,7 +27,7 @@ void main() {
     expect(find.text('1'), findsOneWidget);
 
     // 5. Tap the reset button.
-    await tester.tap(find.byIcon(Icons.refresh));
+    await tester.tap(find.byIcon(Icons.refresh_rounded));
     await tester.pump();
 
     // 6. Verify that our counter has reset.

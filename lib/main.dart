@@ -1,78 +1,56 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:quran_app/core/theme/app_theme.dart';
+import 'package:quran_app/data/services/local_storage_service.dart';
 import 'package:quran_app/features/quran/presentation/pages/quran_page.dart';
-import 'package:quran_app/features/more/presentation/pages/more_page.dart';
 import 'package:quran_app/presentation/pages/home_page.dart';
 import 'package:quran_app/presentation/pages/sholat_page.dart';
-import 'package:quran_app/features/tajwid/presentation/pages/tajwid_page.dart';
+import 'package:quran_app/features/profile/presentation/pages/profile_page.dart';
+import 'package:quran_app/presentation/pages/splash_page.dart';
+import 'package:quran_app/providers/app_providers.dart';
+import 'package:quran_app/providers/theme_provider.dart';
+import 'package:quran_app/core/services/notification_service.dart';
+import 'package:quran_app/core/providers/settings_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  // Initialize notifications
+  final notificationService = NotificationService();
+  await notificationService.init();
+
+  final prefs = await SharedPreferences.getInstance();
+  final localStorage = SharedPreferencesLocalStorageService(prefs);
+
   runApp(
-    const ProviderScope(
-      child: MyApp(),
+    ProviderScope(
+      overrides: [
+        localStorageServiceProvider.overrideWithValue(localStorage),
+        sharedPrefsProvider.overrideWithValue(prefs),
+      ],
+      child: const MyApp(),
     ),
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(themeModeProvider);
+
     return MaterialApp(
       title: 'Al-Qur\'an Digital',
-      theme: ThemeData(
-        brightness: Brightness.light,
-        primaryColor: const Color(0xFF2E8B57), // SeaGreen, a nice emerald green
-        colorScheme: const ColorScheme.light(
-          primary: Color(0xFF2E8B57), // Emerald Green
-          secondary: Color(0xFFDAA520), // GoldenRod for gold accent
-          onPrimary: Colors.white,
-          onSecondary: Colors.black,
-          background: Color(0xFFF5F5F5), // A very light grey
-          surface: Colors.white,
-        ),
-        scaffoldBackgroundColor: const Color(0xFFF5F5F5),
-        fontFamily: 'Roboto', // Placeholder font
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF2E8B57),
-          foregroundColor: Colors.white,
-        ),
-        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          selectedItemColor: Color(0xFF2E8B57),
-          unselectedItemColor: Colors.grey,
-          showUnselectedLabels: true,
-        ),
-        useMaterial3: true,
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        primaryColor: const Color(0xFF2E8B57),
-        colorScheme: const ColorScheme.dark(
-          primary: Color(0xFF2E8B57),
-          secondary: Color(0xFFDAA520),
-          onPrimary: Colors.white,
-          onSecondary: Colors.black,
-          background: Color(0xFF121212),
-          surface: Color(0xFF1E1E1E),
-        ),
-        scaffoldBackgroundColor: const Color(0xFF121212),
-        fontFamily: 'Roboto', // Placeholder font
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF1E1E1E),
-          foregroundColor: Colors.white,
-        ),
-        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: Color(0xFF1E1E1E),
-          selectedItemColor: Color(0xFF2E8B57),
-          unselectedItemColor: Colors.grey,
-          showUnselectedLabels: true,
-        ),
-        useMaterial3: true,
-      ),
-      themeMode: ThemeMode.system, // Respect user's device theme
+      theme: AppTheme.light(),
+      darkTheme: AppTheme.dark(),
+      themeMode: themeMode,
       debugShowCheckedModeBanner: false,
-      home: const MainScreen(),
+      home: const SplashPage(),
     );
   }
 }
@@ -85,13 +63,13 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int _selectedIndex = 1; // Start at Quran page for now
+  int _selectedIndex = 0;
+
   final List<Widget> _pages = const [
     HomePage(),
     QuranPage(),
     SholatPage(),
-    TajwidPage(),
-    MorePage(), // Changed from ProfilePage
+    ProfilePage(),
   ];
 
   void _onItemTapped(int index) {
@@ -102,42 +80,52 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       body: IndexedStack(
         index: _selectedIndex,
         children: _pages,
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed, // Ensure all items are visible
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            activeIcon: Icon(Icons.home),
-            label: 'Beranda',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.book_outlined),
-            activeIcon: Icon(Icons.book),
-            label: 'Al-Qur\'an',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.mosque_outlined),
-            activeIcon: Icon(Icons.mosque),
-            label: 'Sholat',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school_outlined),
-            activeIcon: Icon(Icons.school),
-            label: 'Tajwid',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.more_horiz),
-            activeIcon: Icon(Icons.more_vert),
-            label: 'Lainnya',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.08),
+              blurRadius: 16,
+              offset: const Offset(0, -4),
+            ),
+          ],
+        ),
+        child: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined),
+              activeIcon: Icon(Icons.home_rounded),
+              label: 'Beranda',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.menu_book_outlined),
+              activeIcon: Icon(Icons.menu_book_rounded),
+              label: 'Al-Qur\'an',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.mosque_outlined),
+              activeIcon: Icon(Icons.mosque_rounded),
+              label: 'Sholat',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_outline_rounded),
+              activeIcon: Icon(Icons.person_rounded),
+              label: 'Profil',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+          selectedFontSize: 12,
+          unselectedFontSize: 11,
+          selectedItemColor: theme.colorScheme.primary,
+          unselectedItemColor: theme.textTheme.bodySmall?.color,
+        ),
       ),
     );
   }

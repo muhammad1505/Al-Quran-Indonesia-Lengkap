@@ -1,1 +1,50 @@
-404: Not Found
+{
+  "number": 105,
+  "name": "سُورَةُ الفِيلِ",
+  "transliteration_en": "Al-Fil",
+  "translation_en": "The Elephant",
+  "total_verses": 5,
+  "revelation_type": "Meccan",
+  "verses": [
+    {
+      "number": 1,
+      "text": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَٰبِ ٱلْفِيلِ",
+      "translation_en": "Apakah kamu tidak memperhatikan bagaimana Tuhanmu telah bertindak terhadap tentara bergajah?",
+      "transliteration": "Alam tara kaifa fa‘ala rabbuka bi'aṣḥābil-fīl(i).",
+      "tafsir_jalalain": "Dalam surah ini, Allah mengingatkan Nabi Muhammad dan pengikutnya dengan suatu peristiwa yang menunjukkan betapa besarnya kekuasaan Allah. Peristiwa itu adalah penyerbuan tentara gajah yang dipimpin oleh panglima Abrahah dari Yaman untuk menundukkan penduduk Mekah dan meruntuhkan Ka'bah. Akan tetapi, Allah membinasakan mereka sebelum maksud yang jahat itu tercapai. Peristiwa Gajah adalah suatu peristiwa yang paling terkenal di kalangan bangsa Arab, sehingga peristiwa ini mereka jadikan patokan tanggal bagi peristiwa-peristiwa lainnya.\n\nKesimpulan riwayatnya adalah bahwa seorang panglima perang yang berkuasa di Yaman ingin menguasai Ka'bah dan menghancurkannya, dengan maksud melarang orang-orang Arab mengerjakan haji ke Ka'bah. Lalu bala tentaranya bergerak menuju Ka'bah disertai beberapa ekor gajah untuk menakut-nakuti. Ketika iring-iringan angkatan perang tersebut tiba di suatu tempat bernama Muqammas (suatu tempat yang berdekatan dengan Mekah), mereka beristirahat di sana. Panglima perang mengirim utusannya kepada penduduk Mekah untuk menyampaikan maksudnya, yaitu bukan untuk memerangi penduduk tetapi untuk menghancurkan Ka'bah. Penduduk Mekah menjadi ketakutan dan lari ke gunung-gunung di sekeliling Ka'bah untuk melihat dari jauh apa yang akan terjadi dan apa yang akan dilakukan oleh panglima perang tersebut.\n\nDalam surah ini pula Allah menjelaskan apa yang terjadi terhadap pasukan bergajah dalam bentuk pertanyaan bahwa Muhammad tidak mengetahui keadaan yang sangat aneh dan peristiwa yang sangat dahsyat yang membuktikan kekuasaan Allah, ilmu dan hikmah-Nya yang tinggi terhadap tentara gajah yang ingin menghancurkan Ka'bah. Kejadian itu berbeda dengan kejadian lainnya yang mempunyai sebab dan akibat.",
+      "text_indopak": "اَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِاَصْحٰبِ الْفِيْلِۗ"
+    },
+    {
+      "number": 2,
+      "text": "أَلَمْ يَجْعَلْ كَيْدَهُمْ فِى تَضْلِيلٍۢ",
+      "translation_en": "Bukankah Dia telah menjadikan tipu daya mereka (untuk menghancurkan Ka'bah) itu sia-sia?",
+      "transliteration": "Alam yaj‘al kaidahum fī taḍlīl(in).",
+      "tafsir_jalalain": "Dalam ayat ini, Allah menjelaskan bahwa Ia telah menggagalkan tipu muslihat mereka yang hendak menghancurkan Ka'bah.\n\nAllah mengungkapkan cara menggagalkan tipu daya mereka, yaitu dengan mengirimkan pasukan burung yang berbondong-bondong melempari mereka dengan batu-batu yang berasal dari tanah sehingga menjadikan mereka hancur-lebur dan daging mereka beterbangan ke mana-mana. Maka tentara gajah menjadi laksana daun-daun yang dimakan ulat.",
+      "text_indopak": "اَلَمْ يَجْعَلْ كَيْدَهُمْ فِيْ تَضْلِيْلٍۙ"
+    },
+    {
+      "number": 3,
+      "text": "وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ",
+      "translation_en": "dan Dia mengirimkan kapada mereka burung yang berbondong-bondong,",
+      "transliteration": "Wa arsala ‘alaihim ṭairan abābīl(a).",
+      "tafsir_jalalain": "Dalam ayat ini, Allah menjelaskan bahwa Ia telah menggagalkan tipu muslihat mereka yang hendak menghancurkan Ka'bah.\n\nAllah mengungkapkan cara menggagalkan tipu daya mereka, yaitu dengan mengirimkan pasukan burung yang berbondong-bondong melempari mereka dengan batu-batu yang berasal dari tanah sehingga menjadikan mereka hancur-lebur dan daging mereka beterbangan ke mana-mana. Maka tentara gajah menjadi laksana daun-daun yang dimakan ulat.",
+      "text_indopak": "وَّاَرْسَلَ عَلَيْهِمْ طَيْرًا اَبَابِيْلَۙ"
+    },
+    {
+      "number": 4,
+      "text": "تَرْمِيهِم بِحِجَارَةٍۢ مِّن سِجِّيلٍۢ",
+      "translation_en": "yang melempari mereka dengan batu (berasal) dari tanah yang terbakar,",
+      "transliteration": "Tarmīhim biḥijāratim min sijjīl(in).",
+      "tafsir_jalalain": "Dalam ayat ini, Allah menjelaskan bahwa Ia telah menggagalkan tipu muslihat mereka yang hendak menghancurkan Ka'bah.\n\nAllah mengungkapkan cara menggagalkan tipu daya mereka, yaitu dengan mengirimkan pasukan burung yang berbondong-bondong melempari mereka dengan batu-batu yang berasal dari tanah sehingga menjadikan mereka hancur-lebur dan daging mereka beterbangan ke mana-mana. Maka tentara gajah menjadi laksana daun-daun yang dimakan ulat.",
+      "text_indopak": "تَرْمِيْهِمْ بِحِجَارَةٍ مِّنْ سِجِّيْلٍۙ"
+    },
+    {
+      "number": 5,
+      "text": "فَجَعَلَهُمْ كَعَصْفٍۢ مَّأْكُولٍۭ",
+      "translation_en": "lalu Dia menjadikan mereka seperti daun-daun yang dimakan (ulat).",
+      "transliteration": "Fa ja‘alahum ka‘aṣfim ma'kūl(in).",
+      "tafsir_jalalain": "Dalam ayat ini, Allah menjelaskan bahwa Ia telah menggagalkan tipu muslihat mereka yang hendak menghancurkan Ka'bah.\n\nAllah mengungkapkan cara menggagalkan tipu daya mereka, yaitu dengan mengirimkan pasukan burung yang berbondong-bondong melempari mereka dengan batu-batu yang berasal dari tanah sehingga menjadikan mereka hancur-lebur dan daging mereka beterbangan ke mana-mana. Maka tentara gajah menjadi laksana daun-daun yang dimakan ulat.",
+      "text_indopak": "فَجَعَلَهُمْ كَعَصْفٍ مَّأْكُوْلٍ ࣖ "
+    }
+  ]
+}

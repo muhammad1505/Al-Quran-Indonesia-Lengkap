@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quran_app/core/theme/app_colors.dart';
+import 'package:quran_app/core/constants/app_constants.dart';
 import 'package:quran_app/domain/entities/surah_detail.dart';
 
 class SurahDetailHeader extends StatelessWidget {
@@ -9,69 +11,67 @@ class SurahDetailHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
-      margin: const EdgeInsets.all(16.0),
-      padding: const EdgeInsets.all(24.0),
+      width: double.infinity,
+      margin: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            theme.colorScheme.primary,
-            theme.colorScheme.primary.withOpacity(0.8),
-          ],
-        ),
-        borderRadius: BorderRadius.circular(16.0),
-        boxShadow: [
-          BoxShadow(
-            color: theme.colorScheme.primary.withOpacity(0.3),
-            blurRadius: 10,
-            offset: const Offset(0, 5),
-          ),
-        ],
+        gradient: isDark
+            ? AppColors.darkHeaderGradient
+            : AppColors.headerGradient,
+        borderRadius: BorderRadius.circular(AppConstants.radiusXL),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         children: [
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              surahDetail.name,
+              style: GoogleFonts.amiri(
+                color: Colors.white,
+                fontSize: 32,
+              ),
+            ),
+          ),
+          const SizedBox(height: 4),
           Text(
             surahDetail.transliterationEn,
             style: GoogleFonts.poppins(
               color: Colors.white,
               fontWeight: FontWeight.bold,
-              fontSize: 26,
+              fontSize: 16,
             ),
+            overflow: TextOverflow.ellipsis,
           ),
-          const SizedBox(height: 4.0),
+          const SizedBox(height: 2),
           Text(
             surahDetail.translationEn,
             style: GoogleFonts.poppins(
-              color: Colors.white.withOpacity(0.9),
-              fontSize: 16,
+              color: Colors.white.withValues(alpha: 0.85),
+              fontSize: 12,
             ),
+            overflow: TextOverflow.ellipsis,
           ),
-          const Divider(
-            color: Colors.white70,
-            thickness: 1.0,
-            height: 32.0,
-            indent: 40.0,
-            endIndent: 40.0,
-          ),
-          Text(
-            '${surahDetail.revelationType.toUpperCase()} - ${surahDetail.totalVerses} VERSES',
-            style: GoogleFonts.poppins(
-              color: Colors.white,
-              fontWeight: FontWeight.w500,
-              letterSpacing: 1.5,
+          const SizedBox(height: 8),
+          Container(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+            decoration: BoxDecoration(
+              color: Colors.white.withValues(alpha: 0.15),
+              borderRadius:
+                  BorderRadius.circular(AppConstants.radiusRound),
             ),
-          ),
-          const SizedBox(height: 16.0),
-          Text(
-            surahDetail.name,
-            style: GoogleFonts.amiri(
-              color: Colors.white,
-              fontSize: 32,
+            child: Text(
+              '${surahDetail.revelationType.toLowerCase() == 'meccan' ? 'MAKKIYAH' : 'MADANIYAH'} • ${surahDetail.totalVerses} AYAT',
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+                fontSize: 11,
+                letterSpacing: 1.0,
+              ),
             ),
           ),
         ],
