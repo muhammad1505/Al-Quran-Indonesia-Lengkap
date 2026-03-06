@@ -36,6 +36,15 @@ class QuranRepositoryImpl implements QuranRepository {
       // Validate it's actual JSON
       if (jsonString.trim().startsWith('{')) {
         final Map<String, dynamic> jsonMap = json.decode(jsonString);
+        
+        // --- Add preBismillah field dynamically ---
+        if (jsonMap['number'] == 1 || jsonMap['number'] == 9) {
+          jsonMap['preBismillah'] = false;
+        } else {
+          jsonMap['preBismillah'] = true;
+        }
+        // -----------------------------------------
+
         if (jsonMap.containsKey('verses')) {
           final detail = SurahDetail.fromJson(jsonMap);
           _cache[surahNumber] = detail;

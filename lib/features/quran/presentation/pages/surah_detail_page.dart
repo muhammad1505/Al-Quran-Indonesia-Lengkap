@@ -369,6 +369,24 @@ class _SurahDetailPageState extends ConsumerState<SurahDetailPage> {
                   SliverToBoxAdapter(
                     child: SurahDetailHeader(surahDetail: detail),
                   ),
+
+                  if (detail.bismillahPre)
+                  SliverToBoxAdapter(
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 24),
+                        child: Text(
+                          "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.amiri(
+                            fontSize: 28,
+                            height: 2.2,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
                 bookmarksAsync.when(
                   data: (bookmarks) {
                     final visibleVerses = widget.singleAyahMode && widget.initialAyahNumber != null
@@ -382,6 +400,14 @@ class _SurahDetailPageState extends ConsumerState<SurahDetailPage> {
                         final bookmarkId = '${detail.number}:${verse.number}';
                         final isBookmarked = bookmarks.contains(bookmarkId);
                         final isHighlighted = _highlightedAyah == verse.number;
+
+                        // Check if it's the first verse of a surah (excluding Al-Fatihah) and contains Bismillah
+                        String verseText = settings.rasmType == RasmType.indoPak && verse.textIndopak != null 
+                            ? verse.textIndopak! 
+                            : verse.text;
+                        if (detail.number != 1 && detail.number != 9 && verse.number == 1 && verseText.startsWith("بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ")) {
+                          verseText = verseText.replaceFirst("بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ", "").trim();
+                        }
 
                         return VisibilityDetector(
                           key: Key('$bookmarkId-vis'),
@@ -524,9 +550,7 @@ class _SurahDetailPageState extends ConsumerState<SurahDetailPage> {
                                             RichText(
                                               textAlign: TextAlign.right,
                                               text: _buildVerseText(
-                                                settings.rasmType == RasmType.indoPak && verse.textIndopak != null 
-                                                    ? verse.textIndopak! 
-                                                    : verse.text,
+                                                verseText,
                                                 verse.number,
                                                 detail.number,
                                                 isTajwidMode,

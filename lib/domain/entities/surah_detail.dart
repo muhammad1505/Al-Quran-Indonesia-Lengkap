@@ -8,6 +8,7 @@ class SurahDetail {
   final String translationEn;
   final int totalVerses;
   final String revelationType;
+  final bool bismillahPre;
   final List<Verse> verses;
 
   SurahDetail({
@@ -17,6 +18,7 @@ class SurahDetail {
     required this.translationEn,
     required this.totalVerses,
     required this.revelationType,
+    required this.bismillahPre,
     required this.verses,
   });
 
@@ -31,6 +33,7 @@ class SurahDetail {
       translationEn: SurahTranslationMapper.getIndonesianTranslation(json['translation_en'] ?? ''),
       totalVerses: json['total_verses'],
       revelationType: json['revelation_type'],
+      bismillahPre: json['preBismillah'] ?? false,
       verses: verseObjects,
     );
   }
